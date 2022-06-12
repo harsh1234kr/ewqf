@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section TitleSection{
+    Report for Member-Comments
+}
+@section ContentBody{
+    <br /><br />
+@if (Convert.ToBoolean(Session["IsAdmin"]))
+{
+    <h3><b>Number of Comments per user name</b></h3>
+}
+else {
+    <h3><b>Members Score</b></h3>
+}
+    <hr />
+    <br />
+    <table border="1" class="table table-hover">
+        <thead>
+            <tr class="active" align="center">
+                <td>
+                    <b>  User Name</b>
+                </td>
+                <td>
+                    <b>Number Of Comments</b>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < ViewBag.listProReq.Count; i++)
+            {
+
+                <tr align="center">
+                    @for (var j = 0; j < ViewBag.listProReq[i].Count; j++)
+                    {
+                       
+                            if (Convert.ToString(ViewBag.listProReq[i][j]) == Convert.ToString(Session["UserName"]))
+                            {
+                                <td class="active">
+                                    <strong>  @Convert.ToString(ViewBag.listProReq[i][j])</strong>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    @Convert.ToString(ViewBag.listProReq[i][j])
+                                </td>
+                            }
+
+
+                    }
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+@if (Convert.ToBoolean(Session["IsAdmin"]))
+{
+
+    <center><input type="button" value="print" class="btn btn-primary" onclick="window.print()">&nbsp;&nbsp;<a class="btn btn-primary" href="Index" role="button">Back to Reports Index</a></center>
+}
+
+    <br /><br /><br /><br />
+}

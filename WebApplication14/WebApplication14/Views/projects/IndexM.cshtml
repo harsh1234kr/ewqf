@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WebApplication14.Models.project>
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section TitleSection{
+    index - project
+}
+@section HeaderSection{
+    <style>
+        .stylish-input-group .input-group-addon {
+            background: white !important;
+        }
+
+        .stylish-input-group .form-control {
+            border-right: 0;
+            box-shadow: 0 0 0;
+            border-color: #ccc;
+        }
+
+        .stylish-input-group button {
+            border: 0;
+            background: transparent;
+        }
+    </style>
+}
+@section ContentBody{
+
+    <br /><br />
+    <div class="table-responsive">
+        <p>
+            @Html.ActionLink("Create New Project", "Create", null, new { @role = "button", @class = "btn btn-success" })
+        </p>
+        <br />
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-3">
+                <div id="imaginary_container">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="input-group stylish-input-group">
+                            <input type="text" class="form-control" name="txtfind" id="txtfind" placeholder="Search">
+                            <span class="input-group-addon">
+                                <button type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <br />
+        <table class="table">
+            <tr class="active">
+                <th>
+                  Project name
+                </th>
+                <th>
+                 Disctiption  
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+    {
+                <tr>
+                    <td>
+
+                        <a href="@Url.Action("Index", "Requirements", new { id = item.projectId, name = item.projectName},Request.Url.Scheme)">@item.projectName</a>
+                        @*@Html.ActionLink((item.projectName), "/Requirements/Index", new { id = item.projectId, name = item.projectName })*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.discription)
+                    </td>
+                    @if (Convert.ToBoolean(Session["IsAdmin"]))
+                    {
+                        <td nowrap>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.projectId }, new { @role = "button", @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.projectId }, new { @role = "button", @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.projectId }, new { @role = "button", @class = "btn btn-danger" })
+                        </td>
+                    }
+                </tr>
+            }
+
+        </table>
+    </div>
+}

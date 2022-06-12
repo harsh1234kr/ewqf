@@ -1,0 +1,92 @@
+﻿@model IEnumerable<WebApplication14.Models.Role>
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+@if (Convert.ToBoolean(Session["IsAdmin"]))
+{
+@section TitleSection{
+    index - roles
+}
+@section HeaderSection{
+    <style>
+        .stylish-input-group .input-group-addon {
+            background: white !important;
+        }
+
+        .stylish-input-group .form-control {
+            border-right: 0;
+            box-shadow: 0 0 0;
+            border-color: #ccc;
+        }
+
+        .stylish-input-group button {
+            border: 0;
+            background: transparent;
+        }
+    </style>
+}
+@section ContentBody{
+
+
+<br /><br />
+<div class="table-responsive">
+
+    <p>
+        @Html.ActionLink("Create New Role", "Create", null, new { @role = "button", @class = "btn btn-success" })
+    </p>
+    <br />
+    <div class="row">
+        <div class="col-sm-5 col-sm-offset-3">
+            <div id="imaginary_container">
+                @using (Html.BeginForm())
+                {
+                    <div class="input-group stylish-input-group">
+                        <input type="text" name="txtfind" id="txtfind" class="form-control" placeholder="Search">
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <table class="table">
+        <tr class="active">
+            <th>
+                @Html.DisplayNameFor(model => model.roleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roleDescription)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.roleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.roleDescription)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.roleId }, new { @role = "button", @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.roleId }, new { @role = "button", @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.roleId }, new { @role = "button", @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+   </div>
+}
+}
+else
+{
+ Response.Redirect("http://localhost:49246/Authentication/Login");
+}

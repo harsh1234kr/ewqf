@@ -1,0 +1,56 @@
+﻿@model WebApplication14.Models.Role
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section TitleSection{
+    Details - roles
+}
+@section HeaderSection{
+    <style>
+        .stylish-input-group .input-group-addon {
+            background: white !important;
+        }
+
+        .stylish-input-group .form-control {
+            border-right: 0;
+            box-shadow: 0 0 0;
+            border-color: #ccc;
+        }
+
+        .stylish-input-group button {
+            border: 0;
+            background: transparent;
+        }
+    </style>
+}
+@section ContentBody{
+    <br /><br />
+    <div>
+        <h4>Role</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.roleName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.roleName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.roleDescription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.roleDescription)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.roleId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

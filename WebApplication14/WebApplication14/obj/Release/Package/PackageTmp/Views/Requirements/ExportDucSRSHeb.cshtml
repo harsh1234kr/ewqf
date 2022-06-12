@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+@model IEnumerable<WebApplication14.Models.Requirement>
+<html>
+<head>
+    <style>
+        table {
+            width: 800px;
+            table-layout: fixed;
+        }
+
+        td {
+            word-wrap: break-word;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>ExportDucSRSHeb</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        var doc = new jsPDF();
+
+        // We'll make our own renderer to skip this editor
+        var specialElementHandlers = {
+            '#editor': function (element, renderer) {
+                return true;
+            }
+        };
+
+        $('#cmd').click(function () {
+            doc.fromHTML($('#content').get(0), 15, 15, {
+                'width': 170,
+                'elementHandlers': specialElementHandlers
+            });
+            doc.save('Requirements-list.pdf');
+        });
+    });
+    </script>
+</head>
+<body dir="rtl">
+    
+
+    @Html.ActionLink("Back", "Index", null, new { @role = "button", @class = "btn btn-default" }) &nbsp;&nbsp;&nbsp;&nbsp;
+   
+    <button type="button" class="btn btn-default" onclick="window.print()"><i class="fa fa-print" aria-hidden="true"></i> &nbsp; print</button> &nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- Web2PDF Converter Button BEGIN -->
+    <script type="text/javascript">
+var pdfbuttonlabel="Save page as PDF"
+    </script>
+    <script src="http://www.web2pdfconvert.com/pdfbutton2.js" id="Web2PDF" type="text/javascript"></script>
+    <!-- Web2PDF Converter Button END -->
+    <div id="content">
+        <p dir="ltr">
+            <img src="~/images/logo.gif" width="200" />
+        </p>
+        <center>
+            <div class="alert alert-warning" role="alert">
+                <h4>
+                    <b>  משתתפי הפרויקט:</b>&nbsp;
+
+                    @foreach (var MemberProject in (IEnumerable<WebApplication14.Models.projectMember>)ViewBag.MemberProjectList)
+            {
+                        <us>
+                            @MemberProject.MemberId.firstName
+
+                            @MemberProject.MemberId.lastName
+                            -
+                            @MemberProject.roleId.roleName
+                            &nbsp;
+                        </us>
+                    }
+
+                </h4>
+            </div>
+        </center><br />
+
+        <center><h1><b>רשימת דרישות עבור פרויקט @Convert.ToString(Session["projectName"]) </b></h1></center>  <br /><br />
+
+
+        
+        @foreach (var item in Model)
+        {
+             
+            if (item.isAprroved != false)
+            {
+            <table class="table">
+                <tr class="active">
+                    <td>
+                        <h4>@item.title</h4>
+                        @*<hr size="8" />*@
+                        <br />
+                        <h5>@item.typeId.typeName</h5>
+                    </td>
+                </tr>
+                <tr class="active">
+                    <td>
+                        <p><h5>@item.discription</h5></p>
+                    </td>
+                </tr>
+            </table>
+            }
+           
+
+
+
+        }
+    </div>
+
+    <div id="editor"></div>
+
+</body>
+</html>

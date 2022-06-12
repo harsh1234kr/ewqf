@@ -1,0 +1,171 @@
+﻿@using WebApplication14.Models;
+@model IEnumerable<WebApplication14.Models.Requirement>
+@{
+    if ((Session["UserName"] == null) || (Convert.ToString(Session["UserName"]) == ""))
+    {
+        FormsAuthentication.SignOut();
+        Response.Redirect("~/Authentication/Login");
+    }
+}
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+
+@section TitleSection{
+    Index - Requerments for @Convert.ToString(Session["projectName"])
+}
+@section HeaderSection{
+    <style>
+        .stylish-input-group .input-group-addon {
+            background: white !important;
+        }
+
+        .stylish-input-group .form-control {
+            border-right: 0;
+            box-shadow: 0 0 0;
+            border-color: #ccc;
+        }
+
+        .stylish-input-group button {
+            border: 0;
+            background: transparent;
+        }
+
+    </style>
+}
+@section ContentBody{
+    <br /><br />
+<div class="table-responsive">
+    <p style="font-size:25px;font-weight: bold;">
+        Requerments for @Convert.ToString(Session["projectName"])
+        project
+    </p>
+    <nav>
+        <div class="btn-group">
+            @Html.ActionLink("Create New Requerment", "Create", null, new { @role = "button", @class = "btn btn-success" })   &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+            <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Export to SRS<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li> @Html.ActionLink("English version", "ExportDucSRS", new { id = Convert.ToInt32(Session["projectid"]) })</li>
+                <li>@Html.ActionLink("Hebrew version", "ExportDucSRSHeb", new { id = Convert.ToInt32(Session["projectid"]) })</li>
+            </ul>
+        </div>
+        
+    </nav>
+    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Participants: </b><br /><br />
+    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    @foreach (var pic in (IEnumerable<WebApplication14.Models.projectMember>)Session["picsOfMembers"])
+    {
+        <a href="~/Members/details/@pic.MemberId.MemberId">
+            <img class="img-circle" src="@pic.MemberId.pic" width="65" height="65" alt=""></a>
+            }
+            <br /><br />
+            @Html.ValidationMessage("CredentialError", new { style = "color:green;" })
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-3">
+                    <div id="imaginary_container">
+                        @using (Html.BeginForm())
+                        {
+                            <div class="input-group stylish-input-group">
+                                <input type="text" name="txtfind" id="txtfind" class="form-control" placeholder="Search">
+                                <span class="input-group-addon">
+                                    <button type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <br />
+            <img src="http://www.iconshock.com/img_jpg/BRILLIANT/graphics/jpg/16/ellipse_icon.jpg" /> - active requirement<br />
+            <img src="http://www.iconshock.com/img_jpg/BRILLIANT/transportation/jpg/16/no_entry_sign_icon.jpg" /> - nonactive requirement
+            <br />
+            <img src="~/images/bggreen.jpg" /> - requirement is Aprroved.
+            <br /><br />
+            <table class="table">
+                <tr class="active">
+                    <th>
+
+                    </th>
+                    <th>
+                        Requirement Title
+                    </th>
+                    <th>
+                        Threshold<br /> Score Value
+                    </th>
+                    <th>
+                        Total<br /> Score
+                    </th>
+                    <th>
+                       Requirement vote<br /> ending time
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    var i = "";
+                    if (item.isAprroved)
+                    {
+                        i = "success";
+                    }
+                    <tr class="@i">
+                        <td>
+                            @if (item.isActive)
+                            {
+                                <img src="http://www.iconshock.com/img_jpg/BRILLIANT/graphics/jpg/16/ellipse_icon.jpg" />
+                            }
+                            else
+                            {
+                                <img src="http://www.iconshock.com/img_jpg/BRILLIANT/transportation/jpg/16/no_entry_sign_icon.jpg" />
+                            }
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.thresholdScoreValue)%
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total_Complition_Score)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.endDatetime)
+                        </td>
+                        <td nowrap>
+                            @if (item.isActive)
+                            {
+                                @Html.ActionLink("Chat", "Details", new { id = item.reqId }, new { @role = "button", @class = "btn btn-warning" })
+                            }
+                            else
+                            {
+                                <img src="../../images/disbtn2.jpg" />
+                            }
+
+                            @if ((Convert.ToBoolean(Session["IsAdmin"]) || (Convert.ToBoolean(Session["IsProjectAdmin"]))))
+                            {
+                                <label>
+                                    |
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.reqId }, new { @role = "button", @class = "btn btn-primary" }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.reqId }, new { @role = "button", @class = "btn btn-danger" })
+                                </label>
+                            }
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="4">
+                        <a href="/Projects/Index"><br /><br />Back to Project List</a>
+                    </td>
+                </tr>
+            </table>
+</div>
+}

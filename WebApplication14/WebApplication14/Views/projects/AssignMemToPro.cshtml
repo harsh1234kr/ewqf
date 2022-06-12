@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+@section TitleSection{
+  Assign Role to Member
+}
+
+@section ContentBody{
+    <br /><br />   
+    
+       @using (Html.BeginForm())
+       {
+        <table class="table" border="0">
+            <tr class="active">
+                <td></td>
+                <td><b>
+    Member Name
+</b>
+                </td>
+                <td>
+                    <b>
+                        Role To Assign
+                    </b>
+                </td>
+            </tr>
+@foreach (var member in ViewBag.memberslist)
+{
+            <tr>
+                <td>
+                    <img class="img-circle" src="@member.pic.ToString()" width="60" height="60" alt="">
+                </td>
+                <td>
+@member.userName.ToString()
+
+                </td>
+                <td>
+                    @Html.DropDownList("Rolelist")
+                </td>
+            </tr>
+}
+        </table>
+        <input type="submit" class="btn btn-default btn-lg" value="save" />
+       }
+    <br /><br /><br />
+}

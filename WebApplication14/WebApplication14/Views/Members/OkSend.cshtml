@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+@section TitleSection{
+   Ok - Contactus
+}
+@section HeaderSection{
+
+}
+@section ContentBody{
+    <div> 
+        @Html.ValidationMessage("CredentialError2", new { style = "color:green;" })
+        <script>
+            setTimeout(function () { location.replace("../../projects/Index"); }, 3000);
+        </script>
+       
+       
+    </div>
+}

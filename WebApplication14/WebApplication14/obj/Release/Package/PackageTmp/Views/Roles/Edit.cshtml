@@ -1,0 +1,69 @@
+﻿@model WebApplication14.Models.Role
+
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+    @section TitleSection{
+        Edit - roles
+    }
+    @section HeaderSection{
+        <style>
+            .stylish-input-group .input-group-addon {
+                background: white !important;
+            }
+
+            .stylish-input-group .form-control {
+                border-right: 0;
+                box-shadow: 0 0 0;
+                border-color: #ccc;
+            }
+
+            .stylish-input-group button {
+                border: 0;
+                background: transparent;
+            }
+        </style>
+    }
+    @section ContentBody{
+<br /><br />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>Role</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.roleId)
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.roleName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.roleName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.roleName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.roleDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.roleDescription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.roleDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

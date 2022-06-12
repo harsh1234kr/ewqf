@@ -1,0 +1,124 @@
+﻿@model IEnumerable<WebApplication14.Models.project>
+@using WebApplication14.Models;
+@{ 
+    if ((Session["UserName"] == null) || (Convert.ToString(Session["UserName"]) == ""))
+    {
+        FormsAuthentication.SignOut();
+        Response.Redirect("~/Authentication/Login");
+    }
+}
+@{
+        Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section TitleSection{
+    index - project
+}
+@section HeaderSection{
+   <style>
+        .stylish-input-group .input-group-addon{
+    background: white !important;
+}
+.stylish-input-group .form-control{
+	border-right:0;
+	box-shadow:0 0 0;
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+    </style>
+}
+@section ContentBody{
+   
+    <br /><br />
+    <div class="table-responsive">
+        <p>
+            @Html.ActionLink("Create New Project", "Create", null, new { @role = "button", @class = "btn btn-success" })
+        </p>
+        <br />
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-3">
+                <div id="imaginary_container">
+@using (Html.BeginForm())
+{
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control" name="txtfind" id="txtfind" placeholder="Search">
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+}
+                </div>
+            </div>
+        </div>
+       <br />
+        <table class="table">
+            <tr class="active">
+                <th>
+                Project name
+                </th>
+                <th>
+                 Participants
+                </th>
+                <th>
+              Discription     
+                </th>
+                <th></th>
+            </tr>
+            @{
+                var i = 0;
+            }
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                   
+                    <td>
+                       
+                        <a href="@Url.Action(null, "Requirements", new { id = item.projectId, name = item.projectName }, Request.Url.Scheme)">@item.projectName</a>
+                        @*@Html.ActionLink((item.projectName), "/Requirements/Index", new { id = item.projectId, name = item.projectName })*@
+                    </td>
+                    <td>
+                                                @{
+                                                    List<IEnumerable<WebApplication14.Models.projectMember>> mpp = (List<IEnumerable<WebApplication14.Models.projectMember>>)Session["ListOfMembersToProject"];
+
+                                                    List<projectMember> pm = mpp[i].ToList();
+                                                    foreach (var m1 in pm)
+                                                    {
+                                                        <a href="~/Members/details/@m1.MemberId.MemberId">
+                                                            <img class="img-circle" src="@m1.MemberId.pic" width="30" height="30" alt=""></a>
+                                                            }
+
+                                                            }
+
+</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.discription)
+                       
+                    </td>
+                   
+
+                    <td nowrap>
+                        
+                        @Html.ActionLink("Details", "Details", new { id = item.projectId }, new { @role = "button", @class = "btn btn-primary" }) 
+                    @if (Convert.ToBoolean(Session["IsAdmin"]) || (Convert.ToInt32(Session["IdUserConncet"]) == (Convert.ToInt32(item.MemberId.MemberId))))
+                    {
+                     <label>
+                         |
+                            @Html.ActionLink("Edit", "Edit", new { id = item.projectId }, new { @role = "button", @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.projectId }, new { @role = "button", @class = "btn btn-danger" })
+                        </label>
+                    }
+                   
+                    </td>
+                </tr>
+                 i++;
+            }
+
+        </table>
+    </div>
+}

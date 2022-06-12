@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section TitleSection{
+    Report for Project-Comment
+}
+@section ContentBody{
+    <br /><br />
+<h3><b>Number of Comments per Project</b></h3>
+<hr />
+<br />
+    <table border="1" class="table table-hover">
+        <thead>
+            <tr class="active" align="center">
+                <td>
+                    <b>  Project Name</b>
+                </td>
+                <td>
+                    <b>Number Of Comment</b>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < ViewBag.listProReq.Count; i++)
+            {
+
+                <tr align="center">
+                    @for (var j = 0; j < ViewBag.listProReq[i].Count; j++)
+                    {
+                        <td>
+                            @Convert.ToString(ViewBag.listProReq[i][j])
+                        </td>
+                    }
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+    <center><input type="button" value="print" class="btn btn-primary" onclick="window.print()">&nbsp;&nbsp;<a class="btn btn-primary" href="Index" role="button">Back to Reports Index</a></center>
+    <br /><br /><br /><br />
+}

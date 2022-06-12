@@ -1,0 +1,92 @@
+﻿@model WebApplication14.Models.project
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section TitleSection{
+    Details - project
+}
+@section HeaderSection{
+    
+
+}
+@section ContentBody{
+    <br /><br />
+    <div>
+        <h4>project</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.projectName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.projectName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.discription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.discription)
+            </dd>
+            <dt>
+                project manager:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MemberId.userName) 
+            </dd>
+            <dt>
+                members:
+            </dt>
+            <dd>
+                <table class="table">
+                    <tr class="active" align="center">
+                        <td>
+                          
+                        </td>
+                        <td>
+                            <b>   User name </b>
+                        </td>
+                        <td>
+                            <b> Role</b>
+                        </td>
+                    </tr>
+                        @for (var i = 0; i < ViewBag.listMR.Count; i++)
+    {
+                            <tr align="center">
+
+                                @for (var j = 0; j < ViewBag.listMR[i].Count; j++)
+        {
+                                    <td>
+                                        @{
+                                            if ((j == 0))
+                                            {
+                                                <img src="@Convert.ToString(ViewBag.listMR[i][j])" width="60" height="60" class="img-circle" />
+                                            }
+                                            else
+                                            {
+                                                @Convert.ToString(ViewBag.listMR[i][j])
+                                            }
+
+                                        }
+                                        
+                                    </td>
+                                }
+
+                            </tr>
+                        }
+                           
+                </table>
+
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+       
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

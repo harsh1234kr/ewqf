@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3D90533A-BD93-4FE1-B2B2-AA7AC14BFEF5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication14</RootNamespace>
+    <AssemblyName>WebApplication14</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\Desktop\xml2\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSS\bootstrap-datetimepicker.css" />
+    <Content Include="CSS\bootstrap-datetimepicker.min.css" />
+    <Content Include="CSS\bootstrap-rtl.css" />
+    <Content Include="CSS\bootstrap-rtl.min.css" />
+    <Content Include="CSS\bootstrap.css" />
+    <Content Include="CSS\bootstrap.min.css" />
+    <Content Include="CSS\chat-window-style.css" />
+    <Content Include="CSS\dscountdown.css" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery-ui.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.accordion.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.all.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.base.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.button.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.core.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.dialog.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.menu.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.resizable.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.selectable.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.slider.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.spinner.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.tabs.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.theme.css" />
+    <Content Include="CSS\JQueryUI\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="CSS\JQueryUI\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery-ui.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.accordion.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.all.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.autocomplete.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.base.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.button.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.core.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.datepicker.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.dialog.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.menu.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.progressbar.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.resizable.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.selectable.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.slider.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.spinner.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.tabs.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.theme.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\jquery.ui.tooltip.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery-ui.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.accordion.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.button.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.core.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.dialog.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.menu.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.resizable.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.selectable.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.slider.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.spinner.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.tabs.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.theme.min.css" />
+    <Content Include="CSS\JQueryUI\themes\ui-lightness\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="CSS\main2.css" />
+    <Content Include="CSS\morris.css" />
+    <Content Include="CSS\plugins\morris.css" />
+    <Content Include="CSS\main.css" />
+    <Content Include="CSS\sb-admin-rtl.css" />
+    <Content Include="CSS\sb-admin.css" />
+    <Content Include="font-awesome\css\font-awesome.css" />
+    <Content Include="font-awesome\css\font-awesome.min.css" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\bggreen.jpg" />
+    <Content Include="images\disbtn2.jpg" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\logo2.gif" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\dscountdown.js" />
+    <Content Include="js\dscountdown.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\metisMenu.min.js" />
+    <Content Include="js\plugins\flot\excanvas.min.js" />
+    <Content Include="js\plugins\flot\flot-data.js" />
+    <Content Include="js\plugins\flot\jquery.flot.js" />
+    <Content Include="js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="js\plugins\morris\morris-data.js" />
+    <Content Include="js\plugins\morris\morris.js" />
+    <Content Include="js\plugins\morris\morris.min.js" />
+    <Content Include="js\plugins\morris\raphael.min.js" />
+    <Content Include="js\sb-admin-2.js" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="font-awesome\less\bordered-pulled.less" />
+    <Content Include="font-awesome\less\core.less" />
+    <Content Include="font-awesome\less\fixed-width.less" />
+    <Content Include="font-awesome\less\font-awesome.less" />
+    <Content Include="font-awesome\less\icons.less" />
+    <Content Include="font-awesome\less\larger.less" />
+    <Content Include="font-awesome\less\list.less" />
+    <Content Include="font-awesome\less\mixins.less" />
+    <Content Include="font-awesome\less\path.less" />
+    <Content Include="font-awesome\less\rotated-flipped.less" />
+    <Content Include="font-awesome\less\spinning.less" />
+    <Content Include="font-awesome\less\stacked.less" />
+    <Content Include="font-awesome\less\variables.less" />
+    <Content Include="font-awesome\scss\font-awesome.scss" />
+    <Content Include="font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="font-awesome\scss\_core.scss" />
+    <Content Include="font-awesome\scss\_fixed-width.scss" />
+    <Content Include="font-awesome\scss\_icons.scss" />
+    <Content Include="font-awesome\scss\_larger.scss" />
+    <Content Include="font-awesome\scss\_list.scss" />
+    <Content Include="font-awesome\scss\_mixins.scss" />
+    <Content Include="font-awesome\scss\_path.scss" />
+    <Content Include="font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="font-awesome\scss\_spinning.scss" />
+    <Content Include="font-awesome\scss\_stacked.scss" />
+    <Content Include="font-awesome\scss\_variables.scss" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\ReviseProject - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-3.1.0.intellisense.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chat\chatHubScripts.js" />
+    <Content Include="Scripts\jquery-3.1.0.js" />
+    <Content Include="Scripts\jquery-3.1.0.min.js" />
+    <Content Include="Scripts\jquery-3.1.0.slim.js" />
+    <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
+    <Content Include="Scripts\jquery-ui-1.12.0.js" />
+    <Content Include="Scripts\jquery-ui-1.12.0.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.core.js" />
+    <Content Include="Scripts\ui\jquery.ui.dialog.js" />
+    <Content Include="Scripts\ui\jquery.ui.draggable.js" />
+    <Content Include="Scripts\ui\jquery.ui.mouse.js" />
+    <Content Include="Scripts\ui\jquery.ui.resizable.js" />
+    <Content Include="Scripts\ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\Validations.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\projectsController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\RequirementsController.cs" />
+    <Compile Include="Controllers\RequirementTypesController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="DataAccessLayer\ReviseDataBase.cs" />
+    <Compile Include="Filters\AdminFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="hubs\ChatHub.cs" />
+    <Compile Include="Migrations\201607251620474_InitialCreate.cs" />
+    <Compile Include="Migrations\201607251620474_InitialCreate.Designer.cs">
+      <DependentUpon>201607251620474_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608201047579_200916.cs" />
+    <Compile Include="Migrations\201608201047579_200916.Designer.cs">
+      <DependentUpon>201608201047579_200916.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608201247210_20082016155138.cs" />
+    <Compile Include="Migrations\201608201247210_20082016155138.Designer.cs">
+      <DependentUpon>201608201247210_20082016155138.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608201301182_200820161605.cs" />
+    <Compile Include="Migrations\201608201301182_200820161605.Designer.cs">
+      <DependentUpon>201608201301182_200820161605.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608201416366_200820161720.cs" />
+    <Compile Include="Migrations\201608201416366_200820161720.Designer.cs">
+      <DependentUpon>201608201416366_200820161720.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608211824428_210820162128.cs" />
+    <Compile Include="Migrations\201608211824428_210820162128.Designer.cs">
+      <DependentUpon>201608211824428_210820162128.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608211909418_210820162213.cs" />
+    <Compile Include="Migrations\201608211909418_210820162213.Designer.cs">
+      <DependentUpon>201608211909418_210820162213.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608211913169_210820162217.cs" />
+    <Compile Include="Migrations\201608211913169_210820162217.Designer.cs">
+      <DependentUpon>201608211913169_210820162217.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608231140257_23082016144117.cs" />
+    <Compile Include="Migrations\201608231140257_23082016144117.Designer.cs">
+      <DependentUpon>201608231140257_23082016144117.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608231157355_2308.cs" />
+    <Compile Include="Migrations\201608231157355_2308.Designer.cs">
+      <DependentUpon>201608231157355_2308.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608231225349_23081601526.cs" />
+    <Compile Include="Migrations\201608231225349_23081601526.Designer.cs">
+      <DependentUpon>201608231225349_23081601526.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608261344119_260820161648.cs" />
+    <Compile Include="Migrations\201608261344119_260820161648.Designer.cs">
+      <DependentUpon>201608261344119_260820161648.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609010825072_010920161125.cs" />
+    <Compile Include="Migrations\201609010825072_010920161125.Designer.cs">
+      <DependentUpon>201609010825072_010920161125.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609011003503_010920161304.cs" />
+    <Compile Include="Migrations\201609011003503_010920161304.Designer.cs">
+      <DependentUpon>201609011003503_010920161304.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609011108456_010920161409.cs" />
+    <Compile Include="Migrations\201609011108456_010920161409.Designer.cs">
+      <DependentUpon>201609011108456_010920161409.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\ComplitionScore.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\MemberBusinessLayer.cs" />
+    <Compile Include="Models\MemberScore.cs" />
+    <Compile Include="Models\MessageDetail.cs" />
+    <Compile Include="Models\project.cs" />
+    <Compile Include="Models\projectMember.cs" />
+    <Compile Include="Models\Requirement.cs" />
+    <Compile Include="Models\RequirementType.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\ChatUserDetails.cs" />
+    <Compile Include="Models\UserDetails.cs" />
+    <Compile Include="Models\UserStatus.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequireHttpsAttribute.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.0.min.map" />
+    <Content Include="Views\Authentication\ForgotPass.cshtml" />
+    <Content Include="Views\Authentication\login.cshtml" />
+    <Content Include="Views\Members\AboutUs.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Reports\ProCom.cshtml" />
+    <Content Include="Views\Reports\ProjectReq.cshtml" />
+    <Content Include="Views\Reports\UserPro.cshtml" />
+    <Content Include="Views\Requirements\Delete.cshtml" />
+    <Content Include="Views\Requirements\Details.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
+    <Content Include="Views\projects\Delete.cshtml" />
+    <Content Include="Views\projects\deleteAssign.cshtml" />
+    <Content Include="Views\projects\exqAssign.cshtml" />
+    <Content Include="Views\projects\IndexM.cshtml" />
+    <Content Include="Views\Shared\MyLayout.cshtml" />
+    <Content Include="Views\Members\Help.cshtml" />
+    <Content Include="Views\Reports\MemCom.cshtml" />
+    <Content Include="Views\Requirements\VoteToReq.cshtml" />
+    <Content Include="Views\Requirements\ExportDucSRS.cshtml" />
+    <Content Include="Views\Requirements\ExportDucSRSHeb.cshtml" />
+    <Content Include="Views\Members\ContactUs.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\Members\OkSend.cshtml" />
+    <Content Include="Views\projects\AssignMemToPro.cshtml" />
+    <Content Include="Views\projects\Create.cshtml" />
+    <Content Include="Views\projects\Details.cshtml" />
+    <Content Include="Views\projects\Edit.cshtml" />
+    <Content Include="Views\projects\Index.cshtml" />
+    <Content Include="Views\Requirements\Create.cshtml" />
+    <Content Include="Views\Requirements\Edit.cshtml" />
+    <Content Include="Views\Requirements\Index.cshtml" />
+    <Content Include="Views\RequirementTypes\Create.cshtml" />
+    <Content Include="Views\RequirementTypes\Delete.cshtml" />
+    <Content Include="Views\RequirementTypes\Details.cshtml" />
+    <Content Include="Views\RequirementTypes\Edit.cshtml" />
+    <Content Include="Views\RequirementTypes\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201607251620474_InitialCreate.resx">
+      <DependentUpon>201607251620474_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608201047579_200916.resx">
+      <DependentUpon>201608201047579_200916.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608201247210_20082016155138.resx">
+      <DependentUpon>201608201247210_20082016155138.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608201301182_200820161605.resx">
+      <DependentUpon>201608201301182_200820161605.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608201416366_200820161720.resx">
+      <DependentUpon>201608201416366_200820161720.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608211824428_210820162128.resx">
+      <DependentUpon>201608211824428_210820162128.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608211909418_210820162213.resx">
+      <DependentUpon>201608211909418_210820162213.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608211913169_210820162217.resx">
+      <DependentUpon>201608211913169_210820162217.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231140257_23082016144117.resx">
+      <DependentUpon>201608231140257_23082016144117.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231157355_2308.resx">
+      <DependentUpon>201608231157355_2308.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231225349_23081601526.resx">
+      <DependentUpon>201608231225349_23081601526.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608261344119_260820161648.resx">
+      <DependentUpon>201608261344119_260820161648.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609010825072_010920161125.resx">
+      <DependentUpon>201609010825072_010920161125.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609011003503_010920161304.resx">
+      <DependentUpon>201609011003503_010920161304.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609011108456_010920161409.resx">
+      <DependentUpon>201609011108456_010920161409.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49246</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49246/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

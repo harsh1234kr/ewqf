@@ -1,0 +1,604 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApplication14</name>
+    </assembly>
+    <members>
+        <member name="T:WebApplication14.Controllers.RequireSSLAttribute">
+            <summary>
+            Class that deals with everything related to security at SSL HTTPS
+            </summary>
+        </member>
+        <member name="T:WebApplication14.Controllers.AuthenticationController">
+            <summary>
+            The Authentication Controller Contains all logic that belongs to the issues checking the user's privileges identity.
+            </summary>
+        </member>
+        <member name="M:WebApplication14.Controllers.AuthenticationController.GetMember">
+            <summary>
+            The function Taking the logged user and returns the IDMember of the user.
+            </summary>
+            <returns>the ID Member of the user that connect now to the system</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.AuthenticationController.DoLogin(WebApplication14.Models.UserDetails)">
+            <summary>
+            The function do the log in to the web and check the detials that the user type and send in the Log-in screen.
+            </summary>
+            <param name="u">contains the user name and the password that the user type on the screen</param>
+            <returns>Redirect to the right page.. if the details its true to the web site, if no return again to the log-in screen.</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.AuthenticationController.Logout">
+            <summary>
+            The function executes logout from the system
+            </summary>
+            <returns>Redirect To log in screen</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.AuthenticationController.ForgotPass">
+            <summary>
+            The funcion show the view of the forgot a password.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.AuthenticationController.ForgotPass(System.String)">
+            <summary>
+            the HttpPost after the user type your yser name and get his password to the e-mail.
+            </summary>
+            <param name="UserName">the username that the the user type from the screen</param>
+            <returns>return to the right screen if the detials true or false</returns>
+        </member>
+        <member name="T:WebApplication14.Controllers.CommentsController">
+            <summary>
+            The Comments Controller Contains all logic that belongs to the issues comments.
+            </summary>
+        </member>
+        <member name="M:WebApplication14.Controllers.CommentsController.Index">
+            <summary>
+            the function return a view with a list of all Comments in DataBase.
+            </summary>
+            <returns>list of all Roles in DataBase</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.CommentsController.Index(System.String)">
+            <summary>
+            the HttpPost to search Role name in the list of Comments from the Database.
+            </summary>
+            <param name="txtfind">Search term</param>
+            <returns>result to the search</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.CommentsController.Details(System.Nullable{System.Int32})">
+            <summary>
+            The function show a view of details for specific Comment.
+            </summary>
+            <param name="id">the id Comment for show details</param>
+            <returns>the Comment object with all the detials about him.</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.CommentsController.Create">
+            <summary>
+            The function return the view to the user for create page
+            </summary>
+            <returns>view of create page</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.CommentsController.Create(WebApplication14.Models.Comment)">
+            <summary>
+            the HttpPost function for create new Comment
+            </summary>
+            <param name="comment">the new comment with all the parameters</param>
+            <returns>Redirect To index of Comments list</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.CommentsController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            the function show the screen to edit Existing comments in DataBase.
+            </summary>
+            <param name="id">CommentId to edit</param>
+            <returns>Comment object to edit</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.CommentsController.Edit(WebApplication14.Models.Comment)">
+            <summary>
+            The HttpPost function to the edit comment and to update the detials.
+            </summary>
+            <param name="comment">the object Comment with all the details that the user update about this Role</param>
+            <returns>Redirect To the list of Comment</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.CommentsController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            the function show the view of confirm delete Member from the Database.
+            </summary>
+            <param name="id">CommentId to delete</param>
+            <returns>the object Comment to delete</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.CommentsController.DeleteConfirmed(System.Int32)">
+            <summary>
+             the HttpPost function to delete Comment from the DataBase. 
+            </summary>
+            <param name="id">CommentId to delete</param>
+            <returns>Redirect To the list of Comments</returns>
+        </member>
+        <member name="T:WebApplication14.Controllers.MembersController">
+            <summary>
+            The Members Controller Contains all logic that belongs to the issues Members.
+            </summary>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.GetMember(System.String)">
+            <summary>
+            The function get a User Name of Member and return the MemberId of the Member.
+            </summary>
+            <param name="str">the User Name of Member</param>
+            <returns>the memberId of the Member</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.Index(System.String)">
+            <summary>
+            the HttpPost to search user name in the list of Member from the Database.
+            </summary>
+            <param name="txtfind">the search type</param>
+            <returns>the list of members that found in the DataBase according to the Expression search</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.Details(System.Nullable{System.Int32})">
+            <summary>
+            The function show a view of details for specific Member.
+            </summary>
+            <param name="id">the id Member for show details</param>
+            <returns>the Member object with all the detials about him.</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.Create">
+            <summary>
+            The function return the view to the user for create page
+            </summary>
+            <returns>view of create page</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.Create(WebApplication14.Models.Member)">
+            <summary>
+            the HttpPost function for create new Member
+            </summary>
+            <param name="member">the new member with all the parameters</param>
+            <returns>Redirect To index of Members list</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            The function show the screen to edit Existing Member in DataBase.
+            </summary>
+            <param name="id">the id of the Member to edit</param>
+            <returns>The object Member to edit</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.Edit(WebApplication14.Models.Member)">
+            <summary>
+            The HttpPost function to the edit member and to update the detials.
+            </summary>
+            <param name="member">the object Member with all the details that the user update about this member</param>
+            <returns>Redirect To the list of Members</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            the function show the view of confirm delete Member from the Database.
+            </summary>
+            <param name="id">the id Member of the member to delete</param>
+            <returns>the object Member to delete</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.DeleteConfirmed(System.Int32)">
+            <summary>
+            the HttpPost function to delete Member from the DataBase. 
+            </summary>
+            <param name="id">MemberId to delete</param>
+            <returns>Redirect To the list of Members</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.ContactUs">
+            <summary>
+            view ContactUs to User
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.ContactUs(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            the HttpPost function send a email to the managers about some isuues
+            </summary>
+            <param name="lname">The last name from the form web</param>
+            <param name="fname">The first name from the form web</param>
+            <param name="email">The email from the form web</param>
+            <param name="phone">The phone from the form web</param>
+            <param name="message">The message from the form web</param>
+            <returns>if the message sent Successfully</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.OkSend">
+            <summary>
+            the function view to user Ok Message.
+            </summary>
+            <returns>the view of the page</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.AboutUs">
+            <summary>
+            view to the user the page AboutUs
+            </summary>
+            <returns>The view of About us</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.MembersController.Help">
+            <summary>
+            view to the user the page Help
+            </summary>
+            <returns>The view of help</returns>
+        </member>
+        <member name="T:WebApplication14.Controllers.projectsController">
+            <summary>
+            The Projects Controller Contains all logic that belongs to the issues Projects.
+            </summary>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.GetCountries(System.String[])">
+            <summary>
+            not in use? 
+            </summary>
+            <param name="selectedValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.GetMember">
+            <summary>
+            The function return Member Object by the UserName seassion
+            </summary>
+            <returns>the id member of the user that connection now to the web</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.GetMember(System.Int32)">
+            <summary>
+            The function get Id member as integer parameter and return a Member object by the Id that input.
+            </summary>
+            <param name="memberIdint">Id member as integer</param>
+            <returns>Member object by the Id</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.GetRole(System.Int32)">
+            <summary>
+            The function get Id Role as integer parameter and return a Role object by the Id that input.
+            </summary>
+            <param name="RoleIdint">Id Role as integer</param>
+            <returns>Role object by the Id</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.Index">
+            <summary>
+            the fuction show list of Projects That the Member is belong them.
+            </summary>
+            <returns>list of Projects That the Member is belong them</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.Index(System.String)">
+            <summary>
+            The HttpPost to the list of Projects, search in the list
+            </summary>
+            <param name="txtfind">Search term</param>
+            <returns>result to the search</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.IndexM">
+            <summary>
+            the function show the all project in the DataBase. for Admin only. 
+            </summary>
+            <returns>list of all project in the DataBase</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.IndexM(System.String)">
+            <summary>
+            The HttpPost to the list of Project, search in the list. for admin only.
+            </summary>
+            <param name="txtfind">Search term</param>
+            <returns>>result to the search</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.Details(System.Nullable{System.Int32})">
+            <summary>
+            The function show a view of detiails for specific Project.
+            </summary>
+            <param name="id">the id Project for show details</param>
+            <returns>the Project object with all the detials about him.</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.Create">
+            <summary>
+            the function show the view of Create Project
+            </summary>
+            <returns>view</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.Create(WebApplication14.Models.project,System.Int32[])">
+            <summary>
+            the HttpPost function for create new Project
+            </summary>
+            <param name="project">>the new Project with all the parameters</param>
+            <param name="MembersId">the Integer array with all the id Members that the user assign them to the project. </param>
+            <returns>Redirect To the assign Roles to the Members in project.</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            the function view to the user the option to edit a project.
+            </summary>
+            <param name="id">the id project to edit.</param>
+            <returns>object of project to edit</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.Edit(WebApplication14.Models.project,System.Int32[])">
+            <summary>
+            The HttpPost function update the detials that the user insert in the form of Edit Page.
+            </summary>
+            <param name="project">the update Project with all the parameters</param>
+            <param name="MembersId">the Integer array with all the id Members that the user assign them to the project.</param>
+            <returns>if there an additional Members assign to this project, Redirect To view of edit role to member in project else pass the user to the index of projects list</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.deleteAssign(System.Nullable{System.Int32})">
+            <summary>
+            the function delete a member from project assignment
+            </summary>
+            <param name="id">the id member to delete from the project</param>
+            <returns>Redirect To view of edit project </returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            the view confirm that you want to delete project
+            </summary>
+            <param name="id">the id project to delete</param>
+            <returns>delete the project</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.DeleteConfirmed(System.Int32)">
+            <summary>
+            the HttpPost function to delete a project
+            </summary>
+            <param name="id">id project to delete</param>
+            <returns>Redirect To index of project list.</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.AssignMemToPro(System.Nullable{System.Int32})">
+            <summary>
+            The function show the view that deal with assign per member to specific role after create a project or edit
+            </summary>
+            <param name="id">the id project to assign members to a roles</param>
+            <returns>view with the list of members in the project and the optionals roles to each member.</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.projectsController.AssignMemToPro">
+            <summary>
+            The HttpPost to the Member assign Role.
+            </summary>
+            <returns>Redirect To the details of the Project to see if the project update or created.</returns>
+        </member>
+        <member name="T:WebApplication14.Controllers.ReportsController">
+            <summary>
+            The Reports Controller Contains all logic that belongs to the issues Reports.
+            </summary>
+        </member>
+        <member name="M:WebApplication14.Controllers.ReportsController.Index">
+            <summary>
+            main menu view of Reports
+            </summary>
+            <returns>view</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.ReportsController.UserPro">
+            <summary>
+            The function return a report that show the Members that participant in project in the web and how much projects the member participanted.  
+            </summary>
+            <returns>table report view</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.ReportsController.ProjectReq">
+            <summary>
+            The function return a report that show the project that contians requirements in the web and how much requirements the project containing.  
+            </summary>
+            <returns>table report view</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.ReportsController.MemCom">
+            <summary>
+            The function return a report that show the Members in system and how much comments they writed p to now.  
+            </summary>
+            <returns>table report view</returns>
+        </member>
+        <member name="T:WebApplication14.Controllers.RequirementsController">
+            <summary>
+            The Requirements Controller Contains all logic that belongs to the issues Requirements.
+            </summary>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.GetProject">
+            <summary>
+            the function return the Current id project
+            </summary>
+            <returns>project object contians project id</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.Index(System.Nullable{System.Int32},System.String)">
+            <summary>
+            the fuction show list of Requirements That the project id is belong them.
+            </summary>
+            <param name="id">id of project that selected by member in projects list</param>
+            <param name="name">the name of project that selected by member in projects list</param>
+            <returns>list of Requirements that belong to specipic id project</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.Index(System.String)">
+            <summary>
+            The HttpPost to the list of Requirements, search in the list
+            </summary>
+            <param name="txtfind">Search term</param>
+            <returns>result to the search</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.Details(System.Nullable{System.Int32})">
+            <summary>
+            The function show a view of detiails for specific Requirement.
+            </summary>
+            <param name="id">the id Requirement for show details</param>
+            <returns>the Requirement object with all the detials about him.</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.Create">
+            <summary>
+            the function show the view of Create Requirement
+            </summary>
+            <returns>view</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.Create(WebApplication14.Models.Requirement)">
+            <summary>
+            the HttpPost function for create new requirement
+            </summary>
+            <param name="requirement">the new requirement with all the parameters</param>
+            <returns>Redirect To the index of Requirements</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            The function view to the user the option to edit a Requirement.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.Edit(WebApplication14.Models.Requirement,System.DateTime)">
+            <summary>
+            The HttpPost function update the detials that the user insert in the form of Edit Page.
+            </summary>
+            <param name="requirement">the update Requirement with all the parameters</param>
+            <returns>Redirect To the index of Requirements list</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            the function show the view of confirm delete Member from the Database.
+            </summary>
+            <param name="id">id Requirement to delete </param>
+            <returns>the object Requirement to delete</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.DeleteConfirmed(System.Int32)">
+            <summary>
+            the HttpPost function to delete Requirement from the DataBase. 
+            </summary>
+            <param name="id">id Requirement to delete</param>
+            <returns>Redirect To the list of Requirements</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.VoteToReq(System.Int32)">
+            <summary>
+            the function view to the user the vote page to the project. 
+            </summary>
+            <param name="id">the id of the project</param>
+            <returns>the view of the page</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.VoteToReq">
+            <summary>
+            the httpost function to vote to the project
+            </summary>
+            <returns>Redirect To index of requirements list</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.ExportDucSRS(System.Int32)">
+            <summary>
+            the function view to the user the english document that export to SRS format
+            </summary>
+            <param name="id">the id of the project</param>
+            <returns>the view of the page with the list of the requirements of project</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RequirementsController.ExportDucSRSHeb(System.Int32)">
+            <summary>
+            the function view to the user the document that export to SRS format but in hebrew lang.
+            </summary>
+            <param name="id">the if of the project</param>
+            <returns>the view of the page with the list of the requirements of project</returns>
+        </member>
+        <member name="T:WebApplication14.Controllers.RolesController">
+            <summary>
+            The Roles Controller Contains all logic that belongs to the issues Roles.
+            </summary>
+        </member>
+        <member name="M:WebApplication14.Controllers.RolesController.Index">
+            <summary>
+            the function return a view with a list of all Roles in DataBase.
+            </summary>
+            <returns>list of all Roles in DataBase</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RolesController.Index(System.String)">
+            <summary>
+            the HttpPost to search Role name in the list of Roles from the Database.
+            </summary>
+            <param name="txtfind">Search term</param>
+            <returns>result to the search</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RolesController.Details(System.Nullable{System.Int32})">
+            <summary>
+            The function show a view of details for specific Role.
+            </summary>
+            <param name="id">the id Role for show details</param>
+            <returns>the Role object with all the detials about him.</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RolesController.Create">
+            <summary>
+            The function return the view to the user for create page
+            </summary>
+            <returns>view of create page</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RolesController.Create(WebApplication14.Models.Role)">
+            <summary>
+            the HttpPost function for create new role
+            </summary>
+            <param name="role">the new role with all the parameters</param>
+            <returns>Redirect To index of Roles list</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RolesController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            the function show the screen to edit Existing role in DataBase.
+            </summary>
+            <param name="id">RoleId to edit</param>
+            <returns>Role object to edit</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RolesController.Edit(WebApplication14.Models.Role)">
+            <summary>
+            The HttpPost function to the edit role and to update the detials.
+            </summary>
+            <param name="role">the object Role with all the details that the user update about this Role</param>
+            <returns>Redirect To the list of Roles</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RolesController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            the function show the view of confirm delete Member from the Database.
+            </summary>
+            <param name="id">RoleId to delete</param>
+            <returns>the object Role to delete</returns>
+        </member>
+        <member name="M:WebApplication14.Controllers.RolesController.DeleteConfirmed(System.Int32)">
+            <summary>
+             the HttpPost function to delete Role from the DataBase. 
+            </summary>
+            <param name="id">RoleId to delete</param>
+            <returns>Redirect To the list of Roles</returns>
+        </member>
+        <member name="T:WebApplication14.ChatHub">
+            <summary>
+            Hub Class which resposible to deal with event from the Client side and prompt functions in the Client side by by the Server side.
+            </summary>
+        </member>
+        <member name="F:WebApplication14.ChatHub.db">
+            <summary>
+            Class's attributes which store details and conections to the Data base.
+            </summary>
+        </member>
+        <member name="M:WebApplication14.ChatHub.join">
+            <summary>
+            Function which responsible to deal with an User (Client) that connect to the Hub.
+            </summary>
+        </member>
+        <member name="M:WebApplication14.ChatHub.joinChatRoom(System.String)">
+            <summary>
+            Function which resposible to add the current connected user to a Requirment ChatRoom.
+            </summary>
+            <param name="roomName">The Room Name String = Requirment ID key </param>
+            <returns>Tasks of joinChatRoom event</returns>
+        </member>
+        <member name="M:WebApplication14.ChatHub.startChatRoom(System.String,System.String)">
+            <summary>
+            Function which creates ChatRoom group for a Requirment.
+            </summary>
+            <param name="reqId">Requirment ID key </param>
+            <param name="projId">Project ID key </param>
+            <returns>Task of startChatRoom</returns>
+        </member>
+        <member name="M:WebApplication14.ChatHub.disconChatRoom(System.String,System.String)">
+            <summary>
+            Function which close a Requirment ChatRoom Group.
+            </summary>
+            <param name="reqId">Requirment ID key </param>
+            <param name="projId">Project ID key</param>
+            <returns>>Task of disconChatRoom</returns>
+        </member>
+        <member name="M:WebApplication14.ChatHub.SendMessageToAll(System.String,System.String)">
+            <summary>
+            Function which send a message (string) form Client Side to the other Clients (Users) that connected to the same Requirment ChatRoom.
+            </summary>
+            <param name="userName">Member User Name</param>
+            <param name="message">A texct message </param>
+        </member>
+        <member name="M:WebApplication14.ChatHub.OnDisconnected(System.Boolean)">
+            <summary>
+            Override Function which responsible to deal with an event of user disconnecting the Hub.
+            </summary>
+            <param name="stopCalled">Bool para indicate if the disconnecting is valid or not</param>
+            <returns>Task of OnDisconnected </returns>
+        </member>
+        <member name="T:WebApplication14.Models.MemberBusinessLayer">
+            <summary>
+            the class deals with all the connection Member to the system
+            </summary>
+        </member>
+        <member name="T:WebApplication14.Models.UserStatus">
+            <summary>
+            the enum object contians all the authorization in system.
+            </summary>
+        </member>
+    </members>
+</doc>

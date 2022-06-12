@@ -1,0 +1,123 @@
+﻿@model IEnumerable<WebApplication14.Models.Member>
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section TitleSection{
+    index - members
+}
+@section HeaderSection{
+    <style>
+        .stylish-input-group .input-group-addon {
+            background: white !important;
+        }
+
+        .stylish-input-group .form-control {
+            border-right: 0;
+            box-shadow: 0 0 0;
+            border-color: #ccc;
+        }
+
+        .stylish-input-group button {
+            border: 0;
+            background: transparent;
+        }
+    </style>
+}
+@section ContentBody{
+    <br /><br />
+    <div class="table-responsive">
+        <p>
+            @Html.ActionLink("Create New Member", "Create", null, new { @role = "button", @class = "btn btn-success" })
+        </p>
+        <br />
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-3">
+                <div id="imaginary_container">
+@using (Html.BeginForm()) { 
+                    <div class="input-group stylish-input-group">
+                        <input type="text" name="txtfind" id="txtfind" class="form-control" placeholder="Search">
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+}
+                </div>
+            </div>
+        </div>
+        <br />
+        <table class="table">
+            <tr class="active">
+                <th>
+                    @Html.DisplayNameFor(model => model.firstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.userName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.pic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsAdmin)
+                </th>
+                
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.firstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.userName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.password)
+                    </td>
+                    <td>
+                        <img src="@item.pic" width="30" />
+                    </td>
+                    @if (Convert.ToBoolean(Session["IsAdmin"]))
+                    {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsAdmin)
+                    </td>
+                       
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MemberId }, new { @role = "button", @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MemberId }, new { @role = "button", @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MemberId }, new { @role = "button", @class = "btn btn-danger" })
+                    </td>
+                        }
+                </tr>
+            }
+
+        </table>
+    </div>
+}

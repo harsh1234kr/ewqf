@@ -1,0 +1,121 @@
+﻿@model IEnumerable<WebApplication14.Models.Comment>
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+@if (Convert.ToBoolean(Session["IsAdmin"]))
+{
+    @section TitleSection{
+        index - Comments
+    }
+    @section HeaderSection{
+        <style>
+            .stylish-input-group .input-group-addon {
+                background: white !important;
+            }
+
+            .stylish-input-group .form-control {
+                border-right: 0;
+                box-shadow: 0 0 0;
+                border-color: #ccc;
+            }
+
+            .stylish-input-group button {
+                border: 0;
+                background: transparent;
+            }
+        </style>
+    }
+    @section ContentBody{
+
+
+        <br /><br />
+@*<p>
+    @Html.ActionLink("Create New Comment", "Create", null, new { @role = "button", @class = "btn btn-success" })
+</p>*@
+<br />
+<div class="row">
+    <div class="col-sm-5 col-sm-offset-3">
+        <div id="imaginary_container">
+            @using (Html.BeginForm())
+            {
+                <p>Search by:</p>
+                @Html.DropDownList("FilterList")
+                <br /><br />
+                <div class="input-group stylish-input-group">
+                    <input type="text" name="txtfind" id="txtfind" class="form-control" placeholder="Search">
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<br />
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+        <div class="table-responsive">
+
+    <table class="table">
+        <tr class="active">
+
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDatetime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                user name
+            </th>
+            <th>
+                project
+            </th>
+            <th>
+                requirement
+            </th>
+            <th></th>
+        </tr>
+        
+        @foreach (var item in Model)
+        {
+           
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDatetime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberId.userName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.projectId.projectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.reqId.title)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.commentId }, new { @role = "button", @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.commentId }, new { @role = "button", @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.commentId }, new { @role = "button", @class = "btn btn-danger" })
+                </td>
+                
+                
+            </tr>
+        }
+
+    </table>
+
+</div>
+}
+}
+else
+{
+    Response.Redirect("http://localhost:49246/Authentication/Login");
+}

@@ -1,0 +1,70 @@
+﻿@model WebApplication14.Models.Requirement
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+@section TitleSection{
+    Confirm - delete Requirement
+}
+@section HeaderSection{
+
+}
+@section ContentBody{
+    <br /><br />
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Requirement</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.title)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.title)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.discription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.discription)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Total_Complition_Score)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Total_Complition_Score)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.craetedDateTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.craetedDateTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.endDatetime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.endDatetime)
+            </dd>
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+}

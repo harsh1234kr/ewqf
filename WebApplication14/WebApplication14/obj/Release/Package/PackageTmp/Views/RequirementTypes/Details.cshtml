@@ -1,0 +1,40 @@
+﻿@model WebApplication14.Models.RequirementType
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+@section TitleSection{
+   RequirementTypes - Details
+}
+@section HeaderSection{
+
+}
+@section ContentBody{
+    <br /><br />
+    <div>
+        <h4>RequirementType</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.typeName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.typeName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.typeDiscription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.typeDiscription)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.typeId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

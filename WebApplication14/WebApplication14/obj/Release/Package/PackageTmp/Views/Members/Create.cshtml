@@ -1,0 +1,131 @@
+﻿@model WebApplication14.Models.Member
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <!-- Website CSS style -->
+    <link href="~/css/main.css" rel="stylesheet" />
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+    <title>sign up - revise</title>
+</head>
+<body>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row main">
+            <div class="panel-heading">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="panel-title text-center">
+                    <img src="~/images/logo.gif" height="90" />
+                    <br />
+                    <h1 class="title">Sign-up</h1>
+                    <hr />
+                </div>
+            </div>
+            <div class="main-login main-center">
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">First Name:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                                @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Last Name:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                               @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">User Name:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Email Address:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Phone Number:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Password:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">picture profile:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+                            @Html.EditorFor(model => model.pic, new { htmlAttributes = new { @class = "form-control"} })
+                            
+                            @Html.ValidationMessageFor(model => model.pic, "", new { @class = "text-danger" })
+                        </div>
+                        *If the field remains empty you get default image
+                    </div>
+                </div>
+
+                    <div class="form-group ">
+                        <button type="submit"  value="Create" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                    </div>
+                    <div class="login-register">
+                        @Html.ActionLink("Back to sign-in", "Index")
+                    </div>
+               
+            </div>
+        </div>
+    </div>
+<script src = "~/js/bootstrap.js" ></script>
+}
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿@model WebApplication14.Models.project
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+
+@section TitleSection{
+    Edit - project
+}
+
+@section ContentBody{   
+    
+     @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+           
+                <br /><br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.projectId)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.projectName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.projectName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.projectName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.discription, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <textarea class="form-control text-box single-line" data-val="true" data-val-length="השדה discription חייב להיות מחרוזת עם אורך מרבי של 3000." data-val-length-max="3000" data-val-required="השדה discription נדרש." id="discription" name="discription" rows="7">@Model.discription</textarea>
+
+                        @Html.ValidationMessageFor(model => model.discription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="control-label col-md-2">
+                        <b>
+                            members that assigned:
+                        </b>
+                    </p>
+                    <div class="col-md-10">
+
+                        @foreach (var member in ViewBag.memberslistT)
+                        {
+                            
+                            <a href="~/projects/deleteAssign/@member.MemberId.ToString()">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </a>
+                            <img class="img-circle" src="@member.pic.ToString()" width="30" height="30" alt="">
+                            @member.userName.ToString()
+                            <br />
+                        }
+                        <br />
+                        <blockquote>
+                            <h5>
+                                To delete a Member from the project press on <i class="glyphicon glyphicon-remove"></i>
+                            </h5> </blockquote>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <p class="control-label col-md-2">
+                        <b>
+                            Assign Memebers to the project:
+                        </b>
+                    </p>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        @Html.ListBox("MembersId", (MultiSelectList)ViewBag.memberlist2)
+                    </div>
+                </div>
+</div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+ 
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
